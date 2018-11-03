@@ -1,0 +1,412 @@
+<html>
+    <head>
+        <title>Baby World</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style type="text/css">
+        .product-grid{
+    
+    border: 1px solid #ccc;
+    float: left;
+    width: 300px;
+    background-color: white;
+}
+.product-grid:hover{
+
+    box-shadow: 8px 8px 8px whitesmoke; 
+    
+}
+      .product-grid .product-image{position:relative;}
+.product-content{align-items: center}
+.product-grid .product-image img{width:260;height:315; padding: 15}
+.text-block {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.modal-content{
+    background-image: url("D:/NIIT_Notes/Images/bootstrap/bglogin.jpg");
+    background-size: cover;
+}
+
+        </style>
+    </head>
+    <body style="background-image:url('D:/NIIT_Notes/Images/bootstrap/bg.jpeg')">
+            <nav class="navbar navbar-inverse">
+                    <div class="container-fluid" style="background-color:whitesmoke">
+                      <div class="navbar-header">
+                          <img class="logo" src="D:/NIIT_Notes/Images/bootstrap/mylogo.png"> 
+                      </div>
+                       <form class="navbar-form navbar-left" action="/action_page.php">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search" name="search">
+                          <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                        <i class="glyphicon glyphicon-search"></i></button></div></div>
+                      </form>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li><a href="#" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                    
+                  </nav>
+                  <div class="modal fade" id="signup" role="dialog">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h3>Login / Register</h3><hr>
+                                  <ul class="nav nav-tabs">
+                                          <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                                          <li><a href="#Registration" data-toggle="tab">Registration</a></li>
+                                      </ul><br>
+                                      <div class="tab-content">
+                                      <div class="tab-pane active" id="Login">
+                                  <form action="/action_page.php">
+                                      <div class="form-group">
+                                        <label for="email">Email address:</label>
+                                        <input type="email" class="form-control" id="email">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="pwd">Password:</label>
+                                        <input type="password" class="form-control" id="pwd">
+                                      </div>
+                                      <div class="checkbox">
+                                        <label><input type="checkbox"> Remember me</label>
+                                      </div>
+                                      <button type="submit" class="btn btn-default">Submit</button>
+                                    </form></div>
+                                    <div class="tab-pane" id="Registration">
+                                          <form role="form" class="form-horizontal">
+                                          <div class="form-group">
+                                              <label for="email" class="col-sm-2 control-label">
+                                                  Name</label>
+                                              <div class="col-sm-10">
+                                                  <div class="row">
+                                                      <div class="col-md-3">
+                                                          <select class="form-control">
+                                                              <option>Mr.</option>
+                                                              <option>Ms.</option>
+                                                              <option>Mrs.</option>
+                                                          </select>
+                                                      </div>
+                                                      <div class="col-md-9">
+                                                          <input type="text" class="form-control" placeholder="Name" />
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="email" class="col-sm-2 control-label">
+                                                  Email</label>
+                                              <div class="col-sm-10">
+                                                  <input type="email" class="form-control" id="email" placeholder="Email" />
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="mobile" class="col-sm-2 control-label">
+                                                  Mobile</label>
+                                              <div class="col-sm-10">
+                                                  <input type="email" class="form-control" id="mobile" placeholder="Mobile" />
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="password" class="col-sm-2 control-label">
+                                                  Password</label>
+                                              <div class="col-sm-10">
+                                                  <input type="password" class="form-control" id="password" placeholder="Password" />
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-sm-2">
+                                              </div>
+                                              <div class="col-sm-10">
+                                                  <button type="button" class="btn btn-primary btn-sm">
+                                                      Save & Continue</button>
+                                                  <button type="button" class="btn btn-default btn-sm">
+                                                      Cancel</button>
+                                              </div>
+                                          </div>
+                                          </form>
+                                      </div>
+                                  </div>
+                                  
+                              </div>
+                              <div class="col-md-4">
+                                  <div class="row text-center sign-with">
+                                      <div class="col-md-12">
+                                          <h3>
+                                              Sign in with</h3>
+                                      </div>
+                                      <div class="col-md-12">
+                                          <div class="btn-group btn-group-justified">
+                                              <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
+                                                  Google</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+<br>
+<div>
+<img src="D://NIIT_Notes/Images/bootstrap/products/family_party.jpg" style="width:100%"/>
+</div>
+<div class="container-fluid">
+    <div class="row" style="background-color:rgb(66, 63, 63);color: whitesmoke">
+<div class="col-md-12"><br>
+    <span style="text-align:left">Family Celebrations | 6M - 8Y(12 Results)</span>
+    <span style="float:right">Boutique ends in 6 days & 14 hours</span>&nbsp;<br>
+    <p></p>
+</div>
+    </div>
+</div>
+    <div class="container-fluid" style="background-color:rgb(40, 6, 65)"><br>
+    <div class="row no-gutter">
+        <div class="col-md-3">
+            <div class="product-grid">
+                <div class="product-image">
+            <a href="#">
+                <img src="D://NIIT_Notes/Images/bootstrap/products/family/f11.jpg" id="img1">
+                <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" id="img2" style="display:none">
+                <div class="text-block"> 
+                <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                        <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                    </a>
+            </a></div></div>
+            <div class="product-content">
+                    <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                    <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                    </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+                <div class="product-grid">
+                    <div class="product-image">
+                <a href="#">
+                    <img src="D://NIIT_Notes/Images/bootstrap/products/family/f21.jpg">
+                    <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                    <div class="text-block"> 
+                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                            <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                        </a>
+                </a></div></div>
+                <div class="product-content">
+                        <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                            <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                        </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-3">
+                    <div class="product-grid">
+                        <div class="product-image">
+                    <a href="#">
+                        <img src="D://NIIT_Notes/Images/bootstrap/products/family/f31.jpg">
+                        <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                        <div class="text-block"> 
+                        <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                            </a>
+                    </a></div></div>
+                    <div class="product-content">
+                            <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                            </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="product-grid">
+                            <div class="product-image">
+                        <a href="#">
+                            <img src="D://NIIT_Notes/Images/bootstrap/products/family/f41.jpg">
+                            <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                            <div class="text-block"> 
+                            <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                    <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                </a>
+                        </a></div></div>
+                        <div class="product-content">
+                                <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                    <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+    </div><br>
+    <div class="row">
+            <div class="col-md-3">
+                    <div class="product-grid">
+                        <div class="product-image">
+                    <a href="#">
+                        <img src="D://NIIT_Notes/Images/bootstrap/products/family/f51.jpg">
+                        <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                        <div class="text-block"> 
+                        <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                            </a>
+                    </a></div></div>
+                    <div class="product-content">
+                            <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                            </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="product-grid">
+                            <div class="product-image">
+                        <a href="#">
+                            <img src="D://NIIT_Notes/Images/bootstrap/products/family/f61.jpg">
+                            <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                            <div class="text-block"> 
+                            <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                    <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                </a>
+                        </a></div></div>
+                        <div class="product-content">
+                                <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                    <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                            <div class="product-grid">
+                                <div class="product-image">
+                            <a href="#">
+                                <img src="D://NIIT_Notes/Images/bootstrap/products/family/f71.jpg">
+                                <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                                <div class="text-block"> 
+                                <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.1cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                    </a>
+                            </a></div></div>
+                            <div class="product-content">
+                                    <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                        <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                    </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                <a href="#">
+                                    <img src="D://NIIT_Notes/Images/bootstrap/products/family/f81.jpg">
+                                    <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                                    <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                            <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                        </a>
+                                </a></div></div>
+                                <div class="product-content">
+                                        <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                            <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+    </div>
+    <br>
+    <div class="row">
+            <div class="col-md-3">
+                    <div class="product-grid">
+                        <div class="product-image">
+                    <a href="#">
+                        <img src="D://NIIT_Notes/Images/bootstrap/products/family/f91.jpg">
+                        <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                        <div class="text-block"> 
+                        <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                            </a>
+                    </a></div></div>
+                    <div class="product-content">
+                            <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                            </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="product-grid">
+                            <div class="product-image">
+                        <a href="#">
+                            <img src="D://NIIT_Notes/Images/bootstrap/products/family/f22.jpg">
+                            <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                            <div class="text-block"> 
+                            <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                    <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                </a>
+                        </a></div></div>
+                        <div class="product-content">
+                                <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                    <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                            <div class="product-grid">
+                                <div class="product-image">
+                            <a href="#">
+                                <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg">
+                                <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                                <div class="text-block"> 
+                                <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                    </a>
+                            </a></div></div>
+                            <div class="product-content">
+                                    <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                        <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                    </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-3">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                <a href="#">
+                                    <img src="D://NIIT_Notes/Images/bootstrap/products/family/f32.jpg">
+                                    <img src="D://NIIT_Notes/Images/bootstrap/products/family/f12.jpg" style="display:none">
+                                    <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                            <span class="glyphicon glyphicon-shopping-cart"> Add To Cart</span>
+                                        </a>
+                                </a></div></div>
+                                <div class="product-content">
+                                        <div id="price" value="499"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5>
+                                            <h5><small>Rs.499 | <span style="text-decoration:line-through">Rs.700</span></small></h5></center>
+                                        </div>
+                                </div>
+                            </div>
+                            </div>
+    </div>
+    </div><br>
+    <div class="container-fluid" style="background-color:darkslateblue;color:white;font-family: 'Times New Roman', Times, serif">
+            <p>
+               <h5><b> FirstCry Baby & Kids Products Online Store </b></h5>
+        Explore kids and baby products galore at FirstCry.com, the Big Store for Little Ones. We at FirstCry.com empathize with you as a mother who always aspires to bestow her newborn, infant, baby or kid with the best things even for their smallest needs. That is why, 'Mommy Knows Best'. From breastfeeding to bathing essentials, right furniture to myriad baby care products, a mother needs them all for her lil' one. This inspires us to offer convenient & hassle-free online shopping not just for babies & kids but for moms-to-be & new moms as well.
+        With 2 Lakh Baby & Kids Products, 2 Million Happy Customers, and 2 Thousand+ top-notch national and international brands like Babyhug, Chicco, Graco, BSA, Johnson & Johnson, Huggies, Pampers, Medela, Pigeon, Mothercare, Fisher‐Price, FunSkool, Lego, Disney, Barbie and more you can look forward to an unparalleled shopping experience with us. Shop for baby & kids products online ranging across diapering, feeding & nursing, skin & health care, baby & kids toys, newborn & infant clothing, baby clothes, kids wear, footwear, fashion accessories, baby gear, nursery, kids furniture, gifts, party supplies, books & CDs, school supplies and more at great discounts.
+        With the FirstCry mobile app, now you can shop on the go! Download the FirstCry Android and the iOS app and Voila!
+        <br><br>
+        <h5><b>Newborn & Baby Products Online Shopping in India</b></h5>
+        Along with all your affection and attention, your little bundle of joy deserves the best when it comes to newborn & baby items. Pamper your lil' one with the widest range of newborn & baby products: right from diapers to potty chairs, onesies to party wear, booties to clogs, carry-cots to baby walkers, rattles to learning toys, FirstCry has it all! FirstCry newborn baby shopping checklist.
+            </p>
+            <hr>
+            <div style="text-align:right">&copy;Babyworld.com &nbsp;&nbsp;&nbsp;&nbsp;<img src="D://NIIT_Notes/Images/bootstrap/payment-method.svg"/><br><hr></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Baby World</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  
+  <style type="text/css">
+  #welcomebar{
+      color: purple;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: right;
+      font-weight: bold;
+  }
+  .product-grid{
+    margin: 45px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 400px;
+    background-color: white;
+}
+.product-grid:hover{
+
+    box-shadow: 8px 8px 8px burlywood; 
+    
+}
+      .product-grid .product-image{position:relative;}
+.product-content{align-items: center}
+.product-grid .product-image img{width:100%;height:auto}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+.add-to-cart{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+    
+}
+.product-grid:hover{
+transform: scale(1.1);
+
+}
+.text-block {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+  </style>
+  <script src="loginValidation.js"></script>
+</head>
+<body style="background-image:url('D:/NIIT_Notes/Images/bootstrap/bg2.jpg')">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid" style="background-color:whitesmoke">
+    <div class="navbar-header">
+        <img class="logo" src="D:/NIIT_Notes/Images/bootstrap/mylogo.png"> 
+    </div>
+     <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+      <button type="submit" class="btn btn-default">
+      <i class="glyphicon glyphicon-search"></i></button></div></div>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span> Sign Up/Sign In</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> cart</a></li>
+      </ul>
+  </div>
+  
+</nav>
+<div class="modal fade" id="signup" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3>Login / Register</h3><hr>
+                <ul class="nav nav-tabs">
+                        <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                        <li><a href="#Registration" data-toggle="tab">Registration</a></li>
+                    </ul><br>
+                    <div class="tab-content">
+                    <div class="tab-pane active" id="Login">
+                <form action="#">
+                    <div class="form-group">
+                      <label for="email">Email address:</label>
+                      <input type="email" class="form-control" id="uname">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Password:</label>
+                      <input type="password" class="form-control" id="pswd">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-default" onclick="validateUser()">Submit</button>
+                  </form></div>
+                  <script src="FormValidation.js"></script>
+                  <div class="tab-pane" id="Registration">
+                        <form role="form" class="form-horizontal" id="signupForm">
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">
+                                Name</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <select class="form-control">
+                                            <option>Mr.</option>
+                                            <option>Ms.</option>
+                                            <option>Mrs.</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Name" id="username" pattern="[A-Za-z]{3,}" title="Name should not contain numbers.Eneter at leaset three characters" required/>
+                                        <div id="nameMsg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">
+                                Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="characters followed by an @ sign, followed by more characters, and then a .. After the . sign, add at least 2 letters from a to z" required/>
+                                <div id="emailMsg"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile" class="col-sm-2 control-label">
+                                Mobile</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mobile" placeholder="Mobile" pattern="[0-9]{10}" title="mobile number should contain only 10 numbers" required/>
+                                <div id="mobileMsg"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">
+                                Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                <div id="passMsg"></div>  
+                            </div>
+                            
+                              
+                            </div>
+                           
+                    
+                        <div class="row">
+                            <div class="col-sm-2">
+                            </div>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    Save & Continue</button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    Cancel</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="row text-center sign-with">
+                    <div class="col-md-12">
+                        <h3>
+                            Sign in with</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="btn-group btn-group-justified">
+                            <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
+                                Google</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="welcomebar"></div>
+<nav class="navbar" style="background-color:whitesmoke">
+    <ul class="nav navbar-nav">
+        <li>
+          <a href="#">
+            Baby Clothes 
+          </a>
+          <span id="menu1"></span>
+        </li>
+        <li><h3 style="color:darkseagreen">|</h3></li>
+        <li>
+          <a href="#">
+            Kids Clothes</a>
+          <span id="menu2"></span>
+        </li>
+        <li><h3 style="color:darkseagreen">|</h3></li>
+        <li>
+                <a href="#">
+                  Footwear
+                </a>
+                <span id="menu3"></span>
+              </li>
+              <li><h3 style="color:darkseagreen">|</h3></li>
+              <li>
+                <a href="#">
+                  Toys, Books &amp; School
+                </a>
+                <span id="menu4"></span>
+              </li>
+              <li><h3 style="color:darkseagreen">|</h3></li>
+              <li>
+                <a href="#">
+                  Diapering
+                </a>
+                <span id="menu5"></span>
+              </li>
+              <li><h3 style="color:darkseagreen">|</h3></li>
+              <li class="double">
+                    <a href="#">
+                      Feeding &amp; Nursing
+                    </a>
+                    <span id="menu6"></span>
+                  </li>
+                  <li><h3 style="color:darkseagreen">|</h3></li>
+                  <li class="double">
+                    <a href="#">
+                      Bath &amp; Skin
+                    </a>
+                    <span id="menu7"></span>
+                  </li>
+                  <li><h3 style="color:darkseagreen">|</h3></li>
+                   <li class="double">
+                    <a href="#">
+                      Health &amp; Safety
+                    </a>
+                    <span id="menu8"></span>
+                  </li>
+                  <li><h3 style="color:darkseagreen">|</h3></li>
+                  <li class="double">
+                    <a href="#">
+                      Gear &amp; Nursery
+                    </a>
+                    <span id="menu9"></span>
+                  </li>
+                  <li><h3 style="color:darkseagreen">|</h3></li>
+                  <li class="double">
+                    <a href="#">
+                      Moms &amp; Maternity
+                    </a>
+                    <span id="menu10"></span>
+                  </li>
+            
+</ul>
+</nav>
+</div>
+<div id="offer" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner">
+        <div class="item active">
+                <img src="D:/NIIT_Notes/Images/bootstrap/off1.jpg" alt="Los Angeles" style="width:100%;">
+              </div>
+        <div class="item">
+                <img src="D:/NIIT_Notes/Images/bootstrap/off2.jpg" alt="Los Angeles" style="width:100%;">
+                </div>
+                <div class="item">
+                        <img src="D:/NIIT_Notes/Images/bootstrap/off3.jpg" alt="Los Angeles" style="width:100%;">
+                        </div>
+                        <div class="item">
+                                <img src="D:/NIIT_Notes/Images/bootstrap/off4.jpg" alt="Los Angeles" style="width:100%;">
+                                </div>
+                                <div class="item">
+                                        <img src="D:/NIIT_Notes/Images/bootstrap/off5.jpg" alt="Los Angeles" style="width:100%;">
+                                        </div>
+
+</div>
+<a class="left carousel-control" href="#offer" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#offer" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+</div><br>
+<div class=container-fluid style="background-color:whitesmoke">
+
+<center><h3>PREMIUM BOUTIQUES</h3></center>
+
+    <div class="row no-gutter">
+        <div class="col-md-4">
+        
+<div class="product-grid">
+                        <div class="product-image">
+                            <a href="FamilyProd.html">
+                                <img class="img-rounded" src="D://NIIT_Notes/Images/bootstrap/products/partyrockers_pre.jpg">
+                                <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Shop Now</span>
+                                    </a></div>
+                                </a>
+                        </div><br>
+                        <div class="product-content">
+                            <div class="price"><center>Family Meetings | 3M - 4Y<br><h5><small>Shirts,jackets and Bottoms</small></h5></center>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+<div class="product-grid">
+                        <div class="product-image">
+                            <a href="#">
+                                <img class="img-rounded" src="D://NIIT_Notes/Images/bootstrap/products/sweater_pre.jpg">
+                                <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Shop Now</span>
+                                    </a>
+                                    </div>
+                                    </a>
+                        </div><br>
+                        <div class="product-content">
+                            <div class="price"><center>Shades of The Season | 9M - 12Y<br><h5><small>Jackets,Hoodies and Sweater</small></h5></center>
+                            </div>
+                        </div>
+                    </div></div>
+                    <div class="col-sm-4">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#">
+                                    <img class="img-rounded" src="D://NIIT_Notes/Images/bootstrap/products/partytots_pre.jpg">
+                                    <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Shop Now</span>
+                                    </a>
+                                    </div>
+                                    </a>
+                            </div><br>
+                            <div class="product-content">
+                                <div class="price"><center>Winder Wonder | Up To 8Y<br><h5><small>Jackets cloves and Beanies</small></h5></center>
+                                </div>
+                                
+                            </div>
+                        </div></div></div>
+                        <div class="row no-gutter">
+                        <div class="col-sm-4">
+                        <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="img-rounded" src="D://NIIT_Notes/Images/bootstrap/products/shoes_pre.jpg">
+                                        <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Shop Now</span>
+                                    </a></div></a>
+                                </div><br>
+                                <div class="product-content">
+                                    <div class="price"><center>Pamper Your Feet | 6M - 10Y<br><h5><small>With D'Chica</small></h5></center>
+                                    </div><br>
+                                </div>
+                            </div></div>
+                            <div class="col-sm-4">
+                        <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="img-rounded" src="D://NIIT_Notes/Images/bootstrap/products/snowfights_pre.jpg">
+                                        <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Shop Now</span>
+                                    </a></div></a>
+                                </div><br>
+                                <div class="product-content">
+                                    <div class="price"><center>Winder Wonder | Up To 6Y<br><h5><small>Jackets cloves and Beanies</small></h5></center>
+                                    </div><br>
+                                </div>
+                            </div></div>
+                            <div class="col-sm-4">
+                        <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#">
+                                        <img class="img-rounded" src="D://NIIT_Notes/Images/bootstrap/products/vacaymode_pre.jpg">
+                                        <div class="text-block"> 
+                                    <a href="#" class="btn btn-danger btn-md" style="font-family:'Times New Roman', Times, serif;word-spacing: -0.2cm">
+                                        <span class="glyphicon glyphicon-shopping-cart"> Shop Now</span>
+                                    </a></div></a>
+                                </div><br>
+                                <div class="product-content">
+                                    <div class="price"><center>vacay Mode On | Up To 6Y<br><h5><small>Shirts,jackets and Bottoms</small></h5></center>
+                                    </div><br> 
+                                </div>
+                            </div>
+                        </div>     </div>    </div>              
+                <div class="container-fluid">
+                    <center><h3><b>SHUBH DIWALI</b></h3></center>
+                    <hr>
+                    <div class="row no-gutter">
+                        <div class="col-md-6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="D://NIIT_Notes/Images/bootstrap/diwaliboys.jpg"/>
+                        </div>
+                        <div class="col-md-6">
+                                &nbsp;&nbsp;  <img src="D://NIIT_Notes/Images/bootstrap/diwaligirls.jpg"/>
+                        </div>
+                    </div>
+                </div> 
+                <div class="container-fluid">
+                        <center><h3><b>SEASON'S PICKS</b></h3></center>
+                        <hr>
+                        <div class="row no-gutter">
+                            <div class="col-md-4">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="D://NIIT_Notes/Images/bootstrap/products/s1.jpg"/>
+                            </div>
+                            <div class="col-md-4">
+                                    &nbsp;&nbsp;&nbsp;  <img src="D://NIIT_Notes/Images/bootstrap/products/s2.jpg"/>
+                            </div>
+                            <div class="col-md-4">
+                                    &nbsp;  <img src="D://NIIT_Notes/Images/bootstrap/products/s3.jpg"/>
+                            </div>
+                        </div>
+                    </div>  <br>                                                         
+<div class="container">
+    <div class="row">
+    <div class="col-md-2"><img src="D://NIIT_Notes/Images/bootstrap/topbrands.png"></div>
+    <div class="col-md-10"><marquee><img src="D:/NIIT_Notes/Images/bootstrap/marquee.jpg"/></marquee>
+        </div></div>
+</div><br>
+<div class="container-fluid" style="background-color:darkslateblue;color:white;font-family: 'Times New Roman', Times, serif">
+    <p>
+       <h5><b> FirstCry Baby & Kids Products Online Store </b></h5>
+Explore kids and baby products galore at FirstCry.com, the Big Store for Little Ones. We at FirstCry.com empathize with you as a mother who always aspires to bestow her newborn, infant, baby or kid with the best things even for their smallest needs. That is why, 'Mommy Knows Best'. From breastfeeding to bathing essentials, right furniture to myriad baby care products, a mother needs them all for her lil' one. This inspires us to offer convenient & hassle-free online shopping not just for babies & kids but for moms-to-be & new moms as well.
+With 2 Lakh Baby & Kids Products, 2 Million Happy Customers, and 2 Thousand+ top-notch national and international brands like Babyhug, Chicco, Graco, BSA, Johnson & Johnson, Huggies, Pampers, Medela, Pigeon, Mothercare, Fisher‐Price, FunSkool, Lego, Disney, Barbie and more you can look forward to an unparalleled shopping experience with us. Shop for baby & kids products online ranging across diapering, feeding & nursing, skin & health care, baby & kids toys, newborn & infant clothing, baby clothes, kids wear, footwear, fashion accessories, baby gear, nursery, kids furniture, gifts, party supplies, books & CDs, school supplies and more at great discounts.
+With the FirstCry mobile app, now you can shop on the go! Download the FirstCry Android and the iOS app and Voila!
+<br><br>
+<h5><b>Newborn & Baby Products Online Shopping in India</b></h5>
+Along with all your affection and attention, your little bundle of joy deserves the best when it comes to newborn & baby items. Pamper your lil' one with the widest range of newborn & baby products: right from diapers to potty chairs, onesies to party wear, booties to clogs, carry-cots to baby walkers, rattles to learning toys, FirstCry has it all! FirstCry newborn baby shopping checklist.
+    </p>
+    <hr>
+    <div style="text-align:right">&copy;Babyworld.com &nbsp;&nbsp;&nbsp;&nbsp;<img src="D://NIIT_Notes/Images/bootstrap/payment-method.svg"/><br><hr></div>
+</div>
+</body>
+</html>
